@@ -1,0 +1,94 @@
+{
+    "code": "0000",
+	"result": "成功！",
+    "needReload": true,
+    "commit":"本地是否需要刷新",
+    "timestamp": "10190_201511232230",
+    "commit": "时间对比，保存在本地，下次请求作为参数传入，服务器对比，是否需要刷新返回",
+    "data":
+    {
+		"categoryList":
+        [
+    		{
+        		"categoryId": "5572",
+        		"categoryImgPathReal": "",
+        		"categoryName": "生鲜食品",
+        		"childCategoryList":
+                [
+            		{
+                        "commit":"生鲜的包含的类别",
+                        "categoryId": "5573",
+                        "categoryImgPathReal": "",
+                        "categoryName": "新鲜蔬果",
+                        "childCategoryList":
+                        [
+                        	{
+                        		"categoryId": "5574",
+                        		"commit":"图片可暂时不提供",
+                        		"categoryImgPathReal": "http://wumart.b0.upaiyun.com/20150915/cfa96d10-5ea8-40ef-9063-3dcdcd76086d",
+                        		"categoryName": "新鲜水果",
+                        		"childCategoryList": []
+                        	},
+                        	{
+                        		"categoryId": "5633",
+                        		"categoryImgPathReal": "http://wumart.b0.upaiyun.com/20150915/c8f44467-24c3-476c-89d2-8a3a92ad8f06",
+                        		"categoryName": "新鲜蔬菜",
+                        		"childCategoryList": []
+                        	},
+                        	{
+                        		"categoryId": "5635",
+                        		"categoryImgPathReal": "http://wumart.b0.upaiyun.com/20150915/a6694c16-9229-4db0-b81e-3ac87afd7fa1",
+                        		"categoryName": "加工蔬菜",
+                        		"childCategoryList": []
+                        	},
+                        	{
+                        		"categoryId": "5636",
+                        		"categoryImgPathReal": "http://wumart.b0.upaiyun.com/20150915/aef2c2b9-f7d4-464d-8ccb-28a09295f81f",
+                        		"categoryName": "冷冻蔬菜类",
+                        		"childCategoryList": []
+                        	}
+                        ]
+                    },
+            		{
+                		"categoryId": "5584",
+                		"categoryImgPathReal": "",
+                		"categoryName": "海鲜/肉/蛋",
+                		"childCategoryList":
+                        [
+                			{
+                				"categoryId": "5639",
+                				"categoryImgPathReal": "http://wumart.b0.upaiyun.com/20150915/e128e9d0-03a8-40c5-a4a4-ccd952a1571d",
+                				"categoryName": "猪肉",
+                				"childCategoryList": []
+                			},
+                			{
+                				"categoryId": "5640",
+                				"categoryImgPathReal": "http://wumart.b0.upaiyun.com/20150915/a70a3af8-b322-4beb-9018-46e24fadc7cb",
+                				"categoryName": "牛/羊肉",
+                				"childCategoryList": []
+                			},
+                			{
+                				"categoryId": "5641",
+                				"categoryImgPathReal": "http://wumart.b0.upaiyun.com/20150915/d896a37a-dec7-4296-9074-5e004f7bd4fa",
+                				"categoryName": "禽类",
+                				"childCategoryList": []
+                			},
+                			{
+                				"categoryId": "5642",
+                				"categoryImgPathReal": "http://wumart.b0.upaiyun.com/20150915/b84908ae-a2a7-4464-91cd-d95a75f7aafd",
+                				"categoryName": "水产品",
+                				"childCategoryList": []
+                			},
+                			{
+                				"categoryId": "5643",
+                				"categoryImgPathReal": "http://wumart.b0.upaiyun.com/20150915/bd7ebf54-46d2-4fcf-8794-9ce2c80588b5",
+                				"categoryName": "蛋类",
+                				"childCategoryList": []
+                			}
+                		]
+                    }
+        		]
+            }
+        ]
+    }
+}

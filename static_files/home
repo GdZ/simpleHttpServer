@@ -1,0 +1,51 @@
+{
+    "code": 0,
+    "msg": "成功",
+	"success":true,
+    "result":
+    {
+        "data":
+		[
+            {  
+				"index": 1,
+				"data": [
+					{
+						"imgUrl": "http://xxoo/pro.jpg",
+						"to": "activityDetail",
+						"title":"图标说明"
+					},
+					{
+						"imgUrl": "http://xxoo/pro.jpg",
+						"to": "activityDetail",
+						"title":"图标说明"
+					},
+					{
+						"imgUrl": "http://xxoo/pro.jpg",
+						"to": "activityDetail",
+						"title":"图标说明"
+					}
+				]
+			},
+			{  
+				"index": 2,
+				"data": [
+					{
+						"imgUrl": "http://xxoo/pro.jpg",
+						"to": "activityDetail",
+						"title":"图标说明"
+					},
+					{
+						"imgUrl": "http://xxoo/pro.jpg",
+						"to": "activityDetail",
+						"title":"图标说明"
+					},
+					{
+						"imgUrl": "http://xxoo/pro.jpg",
+						"to": "activityDetail",
+						"title":"图标说明"
+					}
+				]
+			}
+		]
+	}
+}

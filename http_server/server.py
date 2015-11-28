@@ -22,8 +22,16 @@ def handle_request(clientsock):
     Log.debug('Request received:\n%s', data)
 
     request = parse_http_request(data)
+    Log.info('gdz.log request.request_uri ist: %s', request.request_uri)
 
-    file = get_file(request.request_uri)
+    params = {}
+    i = 0
+    for item in str(request.request_uri[1:]).split('/'):
+        key, value = i, item
+        params[key] = value
+        i = i+1
+    Log.info('gdz.log params: %s', params)
+    file = get_file(params[2])
 
     if file.exists and request.is_range_requested():
         response = HttpResponse(protocol=request.protocol, status_code=206,
@@ -32,12 +40,13 @@ def handle_request(clientsock):
 
     elif file.exists:
         response = HttpResponse(protocol=request.protocol, status_code=200)
+        response.headers['charset'] = 'utf-8'
         response.file = file
 
     else:
-
         response = HttpResponse(protocol=request.protocol, status_code=404)
         response.headers['Content-type'] = 'text/plain'
+        response.headers['charset'] = 'utf-8'
         response.content = 'This file does not exist!'
 
     Log.info('GET %s %s %s %s',

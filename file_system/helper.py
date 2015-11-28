@@ -65,7 +65,7 @@ class File(object):
 
 
 def get_file(request_uri):
-    fn = STATIC_FILES_DIR + request_uri
+    fn = STATIC_FILES_DIR + '/' + request_uri
     fsize = None
     exists = False
     mime_type = ''
