@@ -12,15 +12,15 @@
 
 1. clone repository from github
 	```
-	$ git clone https://github.com/ercchy/simpleHttpServer.git simpleHttpServer
+	$ git clone https://github.com/gdz/simpleHttpServer.git simpleHttpServer
 	```
 
 2. create virtual enviroment
 	```
-	$ virtualenv simpleserver
+	$ virtualenv rt
 	```
 	```
-	$ source simpleserver/bin/activate
+	$ source rt/bin/activate
 	```
 
 3. install requirements for server
@@ -28,32 +28,17 @@
 	$ pip install -r requirements.txt
 	```
 
-4. run tests to check if eveything is OK
-	```
-	$ nosetests .
-	```
-
 #### Run:
 
 1. run server
 
 	```
-	$ python run.py
+	$ rt/bin/python run.py
 	```
 
 2. open latest Chrome browser
-    * open url: http://localhost:5555/test_1.txt
-    * open url: http://localhost:5555/test_2.html
-    * open url: http://localhost:5555/test_3.html
-	
-	
-3. everything works?	
-4. copy larger mp4 video file to static_files folder
-    * rename file to test_5.mp4
-    * open url: http://localhost:5555/test_5.mp4
-    * video should start streaming beautifully
-    * move video timeline to different position
-    * see how nicely simple HTTP server handles range requests
+    * open url: http://localhost:5555/home
+
 
 #### Possibilities:
 * Command line parameters for run.py
@@ -61,3 +46,13 @@
 * Templating
 * And so much more ...
 
+
+
+---
+
+TIPS:
+
+- this is fork from
+```
+https://github.com/ercchy/simpleHttpServer.git
+```
