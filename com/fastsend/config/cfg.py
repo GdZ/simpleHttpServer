@@ -7,9 +7,9 @@ __author__ = 'self'
 import os
 import logging.config
 
-HOST = '192.168.1.72'
+HOST = '182.92.148.225'
 
-PORT = 5555
+PORT = 8088
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 
