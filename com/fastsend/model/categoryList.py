@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
+import logging
 __author__ = 'self'
 
+Log = logging.getLogger('fastsend.server')
+
 def getCategoryList():
+    Log.info('gdz.log getCategoryList')
     imgList = []
     for i in range(0, 4, 1):
         img = {}

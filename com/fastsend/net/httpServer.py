@@ -12,6 +12,9 @@ from com.fastsend.sys.fileHelper import get_file
 from com.fastsend.net.httpRequest import parse_http_request
 from com.fastsend.net.httpResponse import HttpResponse
 from com.fastsend.util.threadPool import ThreadPool
+from com.fastsend.model.home import getHomeContent
+from com.fastsend.model.categoryList import getCategoryList
+from com.fastsend.model.categoryDetail import getCategoryDetail
 from com.fastsend.config.cfg import RECV_BUFSIZ
 from com.fastsend.config.cfg import THREAD_POOL_SIZE
 from com.fastsend.config.cfg import SOCKET_BACKLOG_SIZE
@@ -40,31 +43,15 @@ def handle_request(clientsock):
     result = {}
     if params[0] == 'api':
         Log.debug('gdz.log 0. heute ist api')
-        result['code'] = 0
-        result['msg'] = '成功'
-        result['success'] = 'true'
         response = HttpResponse(protocol=request.protocol, status_code=200)
         response.headers['charset'] = 'utf-8'
         response.headers['Content-type'] = 'text/plain'
         if params[2] == 'home':
-            imgList = []
-            for i in range(0, 4, 1):
-                img = {}
-                img['url'] = 'http://xxoo/' + str(i) + '.jpg'
-                img['to'] = 'activityDetail'
-                img['title'] = '图标说明-' + str(i)
-                imgList.append(img)
-            itemList = []
-            for j in range(0, 6, 1):
-                item = {}
-                item['index'] = j
-                item['List'] = imgList
-                itemList.append(item)
-            result['data'] = itemList
+            result['data'] = getHomeContent()
         elif params[2] == 'categoryList':
-            result['data'] = ''
+            result['data'] = getCategoryList()
         elif params[2] == 'categoryDetail':
-            result['data'] = ''
+            result['data'] = getCategoryDetail()
         response.content = json.dumps(result)
     elif file.exists and request.is_range_requested():
         Log.debug('gdz.log 1. ist range requested.')
