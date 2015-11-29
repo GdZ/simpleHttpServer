@@ -18,6 +18,8 @@
 2. create virtual enviroment
 	```
 	$ virtualenv simpleserver
+	```
+	```
 	$ source simpleserver/bin/activate
 	```
 
