@@ -46,12 +46,16 @@ def handle_request(clientsock):
         response = HttpResponse(protocol=request.protocol, status_code=200)
         response.headers['charset'] = 'utf-8'
         response.headers['Content-type'] = 'text/plain'
+        result['code'] = 0
+        result['msg'] = '请求主页成功'
+        result['success'] = 'true'
         if params[2] == 'home':
-            result['data'] = getHomeContent()
+            result['result'] = getHomeContent()
         elif params[2] == 'categoryList':
-            result['data'] = getCategoryList()
+            result['result'] = getCategoryList()
         elif params[2] == 'categoryDetail':
-            result['data'] = getCategoryDetail()
+            result['result'] = getCategoryDetail()
+        Log.info(json.dumps(result))
         response.content = json.dumps(result)
     elif file.exists and request.is_range_requested():
         Log.debug('gdz.log 1. ist range requested.')
