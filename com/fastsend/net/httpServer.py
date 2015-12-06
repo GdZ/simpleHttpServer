@@ -22,13 +22,14 @@ from com.fastsend.config.cfg import SOCKET_BACKLOG_SIZE
 Log = logging.getLogger('fastsend.server')
 
 def handle_request(clientsock):
+    Log.info('gdz.log handle_request --begin')
 
     data = clientsock.recv(RECV_BUFSIZ)
 
     Log.debug('Request received:\n%s', data)
 
     request = parse_http_request(data)
-    Log.debug('gdz.log request.request_uri ist: %s', request.request_uri)
+    Log.debug('gdz.log request ist: %s', json.dumps(str(request)))
 
     params = {}
     i = 0
@@ -40,8 +41,8 @@ def handle_request(clientsock):
     file = get_file(params[2])
     Log.debug('gdz.log file.info: %s', json.dumps(file.__dict__))
 
-    result = {}
-    if params[0] == 'api':
+    if (file.exists == False) and (params[0] == 'api'):
+        result = {}
         Log.debug('gdz.log 0. heute ist api')
         response = HttpResponse(protocol=request.protocol, status_code=200)
         response.headers['charset'] = 'utf-8'
@@ -55,8 +56,13 @@ def handle_request(clientsock):
             result['result'] = getCategoryList()
         elif params[2] == 'categoryDetail':
             result['result'] = getCategoryDetail()
+        else:
+            result['success'] = 'false'
+            result['code'] = -1
+            result['msg'] = 'not fund'
         Log.info(json.dumps(result))
         response.content = json.dumps(result)
+
     elif file.exists and request.is_range_requested():
         Log.debug('gdz.log 1. ist range requested.')
         response = HttpResponse(protocol=request.protocol, status_code=206,
@@ -81,8 +87,10 @@ def handle_request(clientsock):
 
     response.write_to(clientsock)
     clientsock.close()
+    Log.info('gdz.log handle_request --end')
 
 def run(host, port):
+    Log.info('gdz.log run --begin')
     address = (host, port)
     serversock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serversock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -100,4 +108,4 @@ def run(host, port):
         Log.debug('Connected from: %s', addr)
 
         pool.add_task(handle_request, clientsock)
-
+    Log.info('gdz.log run --end')

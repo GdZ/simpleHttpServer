@@ -48,6 +48,7 @@ class HttpRequest(object):
 
 def parse_http_request(data):
     # guard, check input parameters
+    Log.info('gdz.log parse_http_request --begin')
     if not data:
         error = 'Input parameter data must be provided.'
         Log.error(error)
@@ -63,6 +64,8 @@ def parse_http_request(data):
         error = 'Cannot parse HTTP request line: %s' % request_line
         Log.error(error)
         raise HttpParseException(error)
+    else:
+        Log.info('gdz.log parse_http_request')
 
     method, request_uri, protocol = request_cmpts[0], request_cmpts[1], request_cmpts[2]
     headers = {}
@@ -79,4 +82,5 @@ def parse_http_request(data):
         key, value = line_cmpts[0], line_cmpts[1]
         headers[key] = value
 
+    Log.info('gdz.log parse_http_request --end')
     return HttpRequest(method, request_uri, protocol, headers)
